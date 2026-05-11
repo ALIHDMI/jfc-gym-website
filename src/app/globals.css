@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --jfc-bg: #050505;
+  --jfc-surface: #111111;
+  --jfc-card: #181818;
+  --jfc-accent: #d00000;
+  --jfc-accent-2: #a00000;
+  --jfc-fg: #ffffff;
+  --jfc-muted: #c5c5c5;
+  --jfc-border: rgba(255, 255, 255, 0.06);
+}
+
+@theme inline {
+  --color-jfc-bg: var(--jfc-bg);
+  --color-jfc-surface: var(--jfc-surface);
+  --color-jfc-card: var(--jfc-card);
+  --color-jfc-accent: var(--jfc-accent);
+  --color-jfc-accent-2: var(--jfc-accent-2);
+  --color-jfc-fg: var(--jfc-fg);
+  --color-jfc-muted: var(--jfc-muted);
+  --color-jfc-border: var(--jfc-border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--jfc-bg);
+  color: var(--jfc-fg);
+  overflow-x: clip;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+::selection {
+  background: color-mix(in srgb, var(--jfc-accent) 35%, transparent);
+  color: var(--jfc-fg);
+}
+
+@keyframes jfc-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.jfc-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: jfc-marquee 22s linear infinite;
+  will-change: transform;
+}
+
+.jfc-marquee-row {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.jfc-marquee-item {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 26px;
+  line-height: 1;
+  padding: 0 18px;
+}
+
+.jfc-marquee-sep {
+  opacity: 0.35;
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jfc-marquee-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
