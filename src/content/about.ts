@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const ABOUT = {
   title: {
     leading: "КЛУБ",
@@ -27,13 +29,22 @@ export const ABOUT = {
   ],
   collage: {
     main: {
-      src: "/assets/about/collage/picture-1-1-2.jpeg",
+      src: withBasePath("/assets/about/collage/picture-1-1-2.jpeg"),
       alt: "Зал JFC GYM (главное фото)",
     },
     tiles: [
-      { src: "/assets/about/collage/picture-2-1.png", alt: "Зал JFC GYM" },
-      { src: "/assets/about/collage/picture-3-v2.png", alt: "Зал JFC GYM" },
-      { src: "/assets/about/collage/picture-4-1.png", alt: "Зал JFC GYM" },
+      {
+        src: withBasePath("/assets/about/collage/picture-2-1.png"),
+        alt: "Зал JFC GYM",
+      },
+      {
+        src: withBasePath("/assets/about/collage/picture-3-v2.png"),
+        alt: "Зал JFC GYM",
+      },
+      {
+        src: withBasePath("/assets/about/collage/picture-4-1.png"),
+        alt: "Зал JFC GYM",
+      },
     ],
   },
   fighters: [
@@ -41,45 +52,45 @@ export const ABOUT = {
       name: "МЫКТЫБЕК ОРОЛБАЙ",
       subtitle: "БОЕЦ UFC",
       mark: "UFC",
-      logoSrc: "/assets/about/fighter-logos/ufc-v2.png",
+      logoSrc: withBasePath("/assets/about/fighter-logos/ufc-v2.png"),
       logoAlt: "UFC",
       logoScale: 0.5,
       description:
         "Профессиональный боец MMA, выступающий в UFC",
-      imageSrc: "/assets/about/fighters/myktybek.jpg",
+      imageSrc: withBasePath("/assets/about/fighters/myktybek.jpg"),
     },
     {
       name: "САМАТ АБДЫРАХМАНОВ",
       subtitle: "БОЕЦ Hardcore FC",
       mark: "HARDCORE",
-      logoSrc: "/assets/about/fighter-logos/hardcorefc-v2.png",
+      logoSrc: withBasePath("/assets/about/fighter-logos/hardcorefc-v2.png"),
       logoAlt: "Hardcore FC",
       logoScale: 1,
       description:
         "Боец лиги HFC. Мастер спорта и чемпион России по боксу.",
-      imageSrc: "/assets/about/fighters/samat.png",
+      imageSrc: withBasePath("/assets/about/fighters/samat.png"),
     },
     {
       name: "РАЖАБАЛИ ШАЙДУЛЛАЕВ",
       subtitle: "ЧЕМПИОН RIZIN FF",
       mark: "RIZIN",
-      logoSrc: "/assets/about/fighter-logos/rizinff-v2.png",
+      logoSrc: withBasePath("/assets/about/fighter-logos/rizinff-v2.png"),
       logoAlt: "Rizin FF",
       logoScale: 0.8,
       description:
         "Непобежденный боец RIZIN FF в весе до 66 кг.",
-      imageSrc: "/assets/about/fighters/rajabali.jpg",
+      imageSrc: withBasePath("/assets/about/fighters/rajabali.jpg"),
     },
     {
       name: "АЛИМАРДАН АБДЫКААРОВ",
       subtitle: "БОЕЦ ACA MMA",
       mark: "ACA",
-      logoSrc: "/assets/about/fighter-logos/aca-v2.png",
+      logoSrc: withBasePath("/assets/about/fighter-logos/aca-v2.png"),
       logoAlt: "ACA",
       logoScale: 0.5,
       description:
         "Опытный боец ACA MMA.\nПостоянный рост\nи стремление к вершине.",
-      imageSrc: "/assets/about/fighters/alimardan.jpg",
+      imageSrc: withBasePath("/assets/about/fighters/alimardan.jpg"),
     },
   ],
   stats: [
@@ -116,7 +127,7 @@ export const ABOUT = {
     buttonLabel: "ЗАПИСАТЬСЯ НА ТРЕНИРОВКУ",
     buttonHint: "Ответим на все вопросы и подберём программу",
     href: "#lead",
-    imageSrc: "/assets/about/collage/main.png",
+    imageSrc: withBasePath("/assets/about/collage/main.png"),
   },
 } as const;
 

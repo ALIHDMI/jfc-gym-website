@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { SITE } from "@/content/site";
+import { withBasePath } from "@/lib/basePath";
 
 type LogoProps = {
   className?: string;
@@ -25,7 +26,7 @@ export function Logo({
 
   const img = (
     <Image
-      src="/assets/brand/logo3.png"
+      src={withBasePath("/assets/brand/logo3.png")}
       alt={`${SITE.name} logo`}
       width={w}
       height={h}

@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const HERO = {
   title: "Твоя территория силы и роста!",
   subtitle:
@@ -11,7 +13,7 @@ export const HERO = {
     href: "#pricing",
   },
   athleteImage: {
-    src: "/assets/hero/GuysReady3-v3.png",
+    src: withBasePath("/assets/hero/GuysReady3-v3.png"),
     alt: "Спортсмены JFC GYM",
   },
 } as const;

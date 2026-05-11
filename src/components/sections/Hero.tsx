@@ -6,9 +6,10 @@ import { motion } from "framer-motion";
 import { HERO } from "@/content/hero";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { withBasePath } from "@/lib/basePath";
 
 export function Hero() {
-  const videoSrc = "/assets/hero/JFCready.mp4";
+  const videoSrc = withBasePath("/assets/hero/JFCready.mp4");
 
   return (
     <section

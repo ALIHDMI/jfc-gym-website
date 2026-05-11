@@ -11,6 +11,7 @@ import { SITE } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
+import { withBasePath } from "@/lib/basePath";
 
 function getFocusable(root: HTMLElement | null) {
   if (!root) return [];
@@ -87,7 +88,7 @@ export function Header() {
               className="inline-flex items-center gap-2"
             >
               <Image
-                src="/assets/brand/logo3.png"
+                src={withBasePath("/assets/brand/logo3.png")}
                 alt={`${SITE.name} logo`}
                 width={186}
                 height={54}
