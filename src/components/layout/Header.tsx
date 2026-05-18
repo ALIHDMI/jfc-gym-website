@@ -1,6 +1,6 @@
 "use client";
 
-import { AssetImage as Image } from "@/components/ui/AssetImage";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { AssetImage as Image } from "@/components/ui/AssetImage";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACTS } from "@/content/contacts";
 import { Section } from "@/components/ui/Section";
@@ -96,7 +96,7 @@ export function Contacts() {
       <div className="flex flex-col gap-10 lg:gap-10">
         <Reveal>
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-8">
-            <div className="lg:col-span-6 lg:relative lg:z-10 lg:bg-black">
+            <div className="lg:pointer-events-none lg:col-span-6 lg:relative lg:z-10 lg:bg-black">
               <SectionHeading
                 id="contacts-title"
                 title={CONTACTS.title}
@@ -115,7 +115,7 @@ export function Contacts() {
               </div>
             </div>
 
-            <div className="relative z-20 lg:col-span-6 lg:col-start-7 lg:-mt-6 xl:-mt-8">
+            <div className="relative z-20 lg:pointer-events-none lg:col-span-6 lg:col-start-7 lg:-mt-6 xl:-mt-8">
               <div className="relative aspect-[4/3] w-full lg:aspect-[5/4]">
                 <Image
                   src={CONTACTS.heroImage.src}
@@ -127,7 +127,7 @@ export function Contacts() {
               </div>
             </div>
 
-            <div className="relative z-0 -mt-[20%] sm:-mt-20 lg:col-span-12 lg:-mt-32 xl:-mt-36">
+            <div className="relative z-[1] -mt-[20%] sm:-mt-20 lg:col-span-12 lg:-mt-32 xl:-mt-36">
               <Card className="overflow-hidden p-0">
                 <div className="relative w-full aspect-[9/16] sm:aspect-[3/2] lg:aspect-auto lg:min-h-[32rem] xl:min-h-[34rem]">
                   <iframe
@@ -143,7 +143,7 @@ export function Contacts() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-black/20" />
 
-                  <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center p-4 sm:inset-y-0 sm:left-0 sm:justify-start sm:items-center sm:p-6">
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center p-4 sm:inset-y-0 sm:left-0 sm:right-auto sm:w-auto sm:justify-start sm:items-center sm:p-6">
                     <Card className="pointer-events-auto w-full max-w-[22rem] border-white/10 bg-jfc-bg/95 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.55)] backdrop-blur-sm sm:max-w-sm sm:p-6">
                       <div className="flex items-start gap-3">
                         <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-jfc-border bg-white/[0.02] text-jfc-accent">

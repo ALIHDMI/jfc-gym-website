@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AssetImage as Image } from "@/components/ui/AssetImage";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Award, CalendarDays, Dumbbell } from "lucide-react";

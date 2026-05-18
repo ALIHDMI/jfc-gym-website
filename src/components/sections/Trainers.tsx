@@ -1,6 +1,6 @@
 "use client";
 
-import { AssetImage as Image } from "@/components/ui/AssetImage";
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
 import { ArrowUpRight } from "lucide-react";

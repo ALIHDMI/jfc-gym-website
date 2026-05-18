@@ -1,4 +1,4 @@
-import { AssetImage as Image } from "@/components/ui/AssetImage";
+import Image from "next/image";
 import { BENEFITS } from "@/content/benefits";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
