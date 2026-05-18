@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/ui/AssetImage";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ChevronRight } from "lucide-react";

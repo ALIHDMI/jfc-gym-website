@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/ui/AssetImage";
 import { ABOUT } from "@/content/about";
 import { InfrastructureGallery } from "@/components/sections/InfrastructureGallery";
 import { FightersScroll } from "@/components/sections/FightersScroll";
