@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/ui/AssetImage";
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Image as ImageIcon } from "lucide-react";

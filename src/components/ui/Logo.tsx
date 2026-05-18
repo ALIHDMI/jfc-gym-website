@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/ui/AssetImage";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { SITE } from "@/content/site";

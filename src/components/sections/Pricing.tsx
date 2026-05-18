@@ -7,7 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Reveal, RevealStagger } from "@/components/ui/Reveal";
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/ui/AssetImage";
 import { Dumbbell, Trophy } from "lucide-react";
 import { cn } from "@/lib/cn";
 
