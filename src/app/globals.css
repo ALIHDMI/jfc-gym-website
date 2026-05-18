@@ -28,6 +28,8 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 body {
@@ -87,5 +89,73 @@ body {
   .jfc-marquee-track {
     animation: none;
     transform: translateX(0);
+  }
+}
+
+@keyframes jfc-infra-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.jfc-infra-scroll-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: none;
+  flex-shrink: 0;
+  animation: jfc-infra-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+#about {
+  width: 100%;
+  max-width: 100%;
+}
+
+#about .jfc-infra-scroll-fade {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#about .jfc-infra-scroll-track {
+  max-width: none;
+}
+
+#about [data-about-media] {
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+@supports (overflow: clip) {
+  .jfc-infra-scroll-fade {
+    overflow: clip;
+  }
+}
+
+.jfc-infra-scroll-fade {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jfc-infra-scroll-fade {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .jfc-infra-scroll-fade::-webkit-scrollbar {
+    display: none;
+  }
+
+  .jfc-infra-scroll-track {
+    animation: none;
+    transform: none;
   }
 }

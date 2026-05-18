@@ -20,7 +20,7 @@ export function Marquee({
       <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-[linear-gradient(90deg,rgba(255,255,255,1),rgba(255,255,255,0))]" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-[linear-gradient(270deg,rgba(255,255,255,1),rgba(255,255,255,0))]" />
 
-      <div className="mx-auto w-full max-w-7xl px-3 sm:px-5 lg:px-6">
+      <div className="mx-auto w-full max-w-[88rem] px-2 sm:px-4 lg:px-5">
         <div className="border-y border-black/10 py-3 sm:py-4">
           <div className="jfc-marquee-track">
             <div className="jfc-marquee-row">

@@ -11,7 +11,6 @@ import { SITE } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
-import { withBasePath } from "@/lib/basePath";
 
 function getFocusable(root: HTMLElement | null) {
   if (!root) return [];
@@ -80,7 +79,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50">
       <div className="relative border-b border-jfc-border bg-jfc-bg/55 backdrop-blur-xl supports-[backdrop-filter]:bg-jfc-bg/35 shadow-glass">
-        <Container className="flex h-27 max-w-7xl items-center justify-between gap-3">
+        <Container className="flex h-20 items-center justify-between gap-3 lg:h-27">
           <div className="flex items-center gap-3">
             <Link
               href="#top"
@@ -88,12 +87,12 @@ export function Header() {
               className="inline-flex items-center gap-2"
             >
               <Image
-                src={withBasePath("/assets/brand/logo3.png")}
+                src="/assets/brand/logo3.png"
                 alt={`${SITE.name} logo`}
                 width={186}
                 height={54}
                 priority
-                className="h-[54px] w-auto"
+                className="h-10 w-auto lg:h-[54px]"
               />
             </Link>
           </div>
@@ -146,7 +145,7 @@ export function Header() {
               aria-haspopup="dialog"
               aria-expanded={open}
               onClick={() => setOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-jfc-border bg-white/[0.02] text-white transition-colors hover:bg-white/[0.04] lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jfc-accent/55 focus-visible:ring-offset-2 focus-visible:ring-offset-jfc-bg"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-jfc-border bg-white/[0.02] text-white transition-colors hover:bg-white/[0.04] lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jfc-accent/55 focus-visible:ring-offset-2 focus-visible:ring-offset-jfc-bg"
             >
               <Menu className="h-5 w-5" />
             </button>

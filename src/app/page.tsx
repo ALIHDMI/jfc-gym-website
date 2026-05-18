@@ -13,7 +13,7 @@ import { Contacts } from "@/components/sections/Contacts";
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-jfc-bg">
+    <div id="top" className="min-h-screen overflow-x-clip bg-jfc-bg">
       <Header />
       <main id="main">
         <Hero />

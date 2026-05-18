@@ -32,7 +32,7 @@ export function Reveal({
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={cn("min-w-0 max-w-full", className)}
       initial={{ opacity: 0, y, scale: 0.985 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y, scale: 0.985 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
@@ -72,7 +72,7 @@ export function RevealStagger({
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={cn("min-w-0 max-w-full", className)}
       variants={{
         hidden: {},
         show: { transition: { staggerChildren: stagger, delayChildren } },

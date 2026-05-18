@@ -35,7 +35,7 @@ export function Reviews() {
           />
         </Reveal>
 
-        <Reveal delay={0.04} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal delay={0.04} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {REVIEWS.items.map((r) => (
             <Card key={`${r.name}-${r.text.slice(0, 12)}`} className="p-6">
               <div className="flex items-start justify-between gap-3">

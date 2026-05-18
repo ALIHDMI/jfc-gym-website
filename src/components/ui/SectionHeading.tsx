@@ -24,7 +24,7 @@ export function SectionHeading({
         id={id}
         className={cn(
           "text-balance uppercase text-4xl font-semibold leading-tight tracking-[0.02em] text-white sm:text-6xl",
-          isCenter ? "mx-auto max-w-2xl" : "max-w-2xl",
+          isCenter ? "mx-auto max-w-3xl" : "max-w-3xl",
         )}
       >
         {title}
@@ -34,7 +34,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 text-pretty text-[15px] leading-7 text-jfc-muted sm:text-lg sm:leading-8",
-            isCenter ? "mx-auto max-w-2xl" : "max-w-2xl",
+            isCenter ? "mx-auto max-w-3xl" : "max-w-3xl",
           )}
         >
           {description}

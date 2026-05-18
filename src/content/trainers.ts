@@ -1,5 +1,3 @@
-import { withBasePath } from "@/lib/basePath";
-
 export type Trainer = {
   slug: string;
   name: string;
@@ -28,10 +26,7 @@ export const TRAINERS = {
       experience: "5+ лет",
       achievements: ["Постановка техники", "Общая физическая подготовка"],
       scheduleNote: "Оставьте заявку — подберём удобное время.",
-      photo: {
-        src: withBasePath("/assets/trainers/bakyt.png"),
-        alt: "Портрет тренера Бакыт",
-      },
+      photo: { src: "/assets/trainers/bakyt.png", alt: "Портрет тренера Бакыт" },
     },
     {
       slug: "janbulat",
@@ -42,7 +37,7 @@ export const TRAINERS = {
       achievements: ["Постановка техники ударов", "Спарринги по уровню"],
       scheduleNote: "Оставьте заявку — подберём удобное время.",
       photo: {
-        src: withBasePath("/assets/trainers/janbulat.png"),
+        src: "/assets/trainers/janbulat.png",
         alt: "Портрет тренера Жанбулат",
       },
     },

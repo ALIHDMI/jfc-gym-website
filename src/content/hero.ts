@@ -1,7 +1,10 @@
-import { withBasePath } from "@/lib/basePath";
-
 export const HERO = {
-  title: "Твоя территория силы и роста!",
+  /** Две верхние строки заголовка на мобильных */
+  titleMobileLines: ["Твоя", "Территория"] as const,
+  /** Красная строка (включая «!») */
+  titleAccent: "силы и роста!",
+  /** Однострочный заголовок на десктопе */
+  titleLead: "Твоя территория ",
   subtitle:
     "Тренируйся в премиальной атмосфере: дисциплина, технология и комфорт — без лишнего шума.",
   primaryCta: {
@@ -13,8 +16,11 @@ export const HERO = {
     href: "#pricing",
   },
   athleteImage: {
-    src: withBasePath("/assets/hero/GuysReady3-v3.png"),
+    src: "/assets/hero/GuysReady3-v3.png",
+    alt: "Спортсмены JFC GYM",
+  },
+  athleteImageMobile: {
+    src: "/assets/hero/GuysReady3Mobile.jpeg",
     alt: "Спортсмены JFC GYM",
   },
 } as const;
-

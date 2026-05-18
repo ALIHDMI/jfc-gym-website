@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import { CONTACTS } from "@/content/contacts";
 import { cn } from "@/lib/cn";
-import { withBasePath } from "@/lib/basePath";
 
 type FloatingWhatsAppButtonProps = {
   className?: string;
@@ -29,7 +28,7 @@ export function FloatingWhatsAppButton({ className }: FloatingWhatsAppButtonProp
       )}
     >
       <Image
-        src={withBasePath("/assets/icons/whatsapp.jpg")}
+        src="/assets/icons/whatsapp.jpg"
         alt="WhatsApp"
         fill
         sizes="56px"

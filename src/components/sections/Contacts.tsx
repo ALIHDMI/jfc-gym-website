@@ -1,161 +1,235 @@
-import type React from "react";
+import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { CONTACTS } from "@/content/contacts";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Reveal } from "@/components/ui/Reveal";
-import { AtSign, Clock, MapPin, Phone, MessageCircle } from "lucide-react";
+import { Reveal, RevealStagger } from "@/components/ui/Reveal";
+import {
+  ArrowUpRight,
+  Clock,
+  Headphones,
+  AtSign,
+  MapPin,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
+import { cn } from "@/lib/cn";
 
-function InfoRow({
+const MAP_DARK_FILTER =
+  "invert-[0.92] hue-rotate-180 saturate-[0.85] contrast-[1.05] brightness-[0.9]";
+
+function ContactHighlight({
   icon,
-  label,
-  value,
-  href,
+  title,
+  description,
 }: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-  href?: string;
+  icon: ReactNode;
+  title: string;
+  description: string;
 }) {
-  const content = (
-    <div className="flex items-start gap-3">
-      <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-jfc-border bg-white/[0.02] text-jfc-accent">
+  return (
+    <div className="flex gap-3">
+      <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-jfc-border bg-white/[0.02] text-jfc-accent shadow-[0_0_0_1px_rgba(208,0,0,0.10)]">
         {icon}
       </span>
-      <div>
-        <p className="text-xs font-medium tracking-[0.22em] text-white/55">
-          {label}
-        </p>
-        <p className="mt-1 text-[15px] leading-7 text-white/85">{value}</p>
+      <div className="min-w-0">
+        <p className="text-xs font-semibold tracking-[0.1em] text-white">{title}</p>
+        <p className="mt-1 text-sm leading-6 text-jfc-muted">{description}</p>
       </div>
     </div>
   );
+}
 
-  if (!href) {
-    return <div className="rounded-xl p-3">{content}</div>;
-  }
-
+function ContactChannelCard({
+  icon,
+  children,
+  className,
+}: {
+  icon: ReactNode;
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <Link
-      href={href}
-      className="block rounded-xl p-3 transition-colors hover:bg-white/[0.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jfc-accent/45"
-    >
-      {content}
-    </Link>
+    <Card className={cn("h-full p-5", className)}>
+      <div className="flex h-full gap-3">
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-jfc-border bg-white/[0.02] text-jfc-accent">
+          {icon}
+        </span>
+        <div className="min-w-0 flex-1">{children}</div>
+      </div>
+    </Card>
   );
 }
 
 export function Contacts() {
-  const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
-    CONTACTS.address,
-  )}&output=embed`;
+  const mapQuery = encodeURIComponent(CONTACTS.address);
+  const mapSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+  const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
+
+  const highlights = [
+    {
+      icon: <MapPin className="h-4 w-4" />,
+      ...CONTACTS.highlights[0],
+    },
+    {
+      icon: <Clock className="h-4 w-4" />,
+      ...CONTACTS.highlights[1],
+    },
+    {
+      icon: <Headphones className="h-4 w-4" />,
+      ...CONTACTS.highlights[2],
+    },
+  ] as const;
 
   return (
     <Section
       id="contacts"
-      variant="surface"
+      variant="base"
       ariaLabelledby="contacts-title"
       withTopDivider
       withBottomDivider
+      className="!bg-black !pt-10 !pb-16 sm:!pt-12 sm:!pb-20 lg:!pt-14 lg:!pb-24"
     >
-      <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <Reveal className="lg:col-span-5">
-          <SectionHeading
-            id="contacts-title"
-            eyebrow="Связь"
-            title={CONTACTS.title}
-            description={CONTACTS.description}
-          />
+      <div className="flex flex-col gap-10 lg:gap-10">
+        <Reveal>
+          <div className="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-8">
+            <div className="lg:col-span-6 lg:relative lg:z-10 lg:bg-black">
+              <SectionHeading
+                id="contacts-title"
+                title={CONTACTS.title}
+                description={CONTACTS.description}
+              />
 
-          <div className="mt-8 grid gap-3">
-            <Card className="p-2">
-              <InfoRow
-                icon={<MapPin className="h-4 w-4" />}
-                label="Адрес"
-                value={CONTACTS.address}
-              />
-              <InfoRow
-                icon={<Phone className="h-4 w-4" />}
-                label="Телефон"
-                value={CONTACTS.phone}
-                href={`tel:${CONTACTS.phone.replace(/[^\d+]/g, "")}`}
-              />
-              <InfoRow
-                icon={<Phone className="h-4 w-4" />}
-                label="Телефон"
-                value={CONTACTS.phone2}
-                href={`tel:${CONTACTS.phone2.replace(/[^\d+]/g, "")}`}
-              />
-              <InfoRow
-                icon={<MessageCircle className="h-4 w-4" />}
-                label="WhatsApp"
-                value={CONTACTS.whatsapp.label}
-                href={CONTACTS.whatsapp.href}
-              />
-              <InfoRow
-                icon={<AtSign className="h-4 w-4" />}
-                label="Instagram"
-                value={CONTACTS.instagram.label}
-                href={CONTACTS.instagram.href}
-              />
-              <div className="px-3 py-3">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-jfc-border bg-white/[0.02] text-jfc-accent">
-                    <Clock className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <p className="text-xs font-medium tracking-[0.22em] text-white/55">
-                      Часы работы
-                    </p>
-                    <div className="mt-1 grid gap-1 text-[15px] leading-7 text-white/85">
-                      {CONTACTS.hours.map((h) => (
-                        <p key={h}>{h}</p>
-                      ))}
-                    </div>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
+                {highlights.map((item) => (
+                  <ContactHighlight
+                    key={item.title}
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="relative z-20 lg:col-span-6 lg:col-start-7 lg:-mt-6 xl:-mt-8">
+              <div className="relative aspect-[4/3] w-full lg:aspect-[5/4]">
+                <Image
+                  src={CONTACTS.heroImage.src}
+                  alt={CONTACTS.heroImage.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain object-bottom drop-shadow-[0_28px_80px_rgba(0,0,0,0.72)]"
+                />
+              </div>
+            </div>
+
+            <div className="relative z-0 -mt-[20%] sm:-mt-20 lg:col-span-12 lg:-mt-32 xl:-mt-36">
+              <Card className="overflow-hidden p-0">
+                <div className="relative w-full aspect-[9/16] sm:aspect-[3/2] lg:aspect-auto lg:min-h-[32rem] xl:min-h-[34rem]">
+                  <iframe
+                    title="Google карта — г. Бишкек, ул. Кара-Кульская, 1/4"
+                    src={mapSrc}
+                    className={cn(
+                      "absolute inset-0 h-full w-full scale-[1.02]",
+                      MAP_DARK_FILTER,
+                    )}
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-black/20" />
+
+                  <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center p-4 sm:inset-y-0 sm:left-0 sm:justify-start sm:items-center sm:p-6">
+                    <Card className="pointer-events-auto w-full max-w-[22rem] border-white/10 bg-jfc-bg/95 p-5 shadow-[0_24px_60px_rgba(0,0,0,0.55)] backdrop-blur-sm sm:max-w-sm sm:p-6">
+                      <div className="flex items-start gap-3">
+                        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-jfc-border bg-white/[0.02] text-jfc-accent">
+                          <MapPin className="h-4 w-4" />
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold leading-6 text-white">
+                            {CONTACTS.address}
+                          </p>
+                          <p className="mt-1 text-sm text-jfc-muted">{CONTACTS.postalCode}</p>
+                        </div>
+                      </div>
+
+                      <Button
+                        href={directionsHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 w-full justify-center"
+                      >
+                        {CONTACTS.mapDirectionsLabel}
+                        <ArrowUpRight className="h-4 w-4" />
+                      </Button>
+                    </Card>
                   </div>
                 </div>
-              </div>
-            </Card>
-
-            <div className="grid gap-3">
-              <Button href={CONTACTS.cta.href} className="w-full justify-center">
-                {CONTACTS.cta.label}
-              </Button>
-              <Button
-                href={CONTACTS.whatsapp.href}
-                variant="secondary"
-                className="w-full justify-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Написать в WhatsApp
-              </Button>
+              </Card>
             </div>
           </div>
         </Reveal>
 
-        <Reveal delay={0.05} className="relative lg:col-span-7">
-          <div className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-jfc-accent/10 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-12 left-8 h-56 w-56 rounded-full bg-jfc-accent-2/10 blur-3xl" />
-
-          <Card className="p-0">
-            <div className="relative aspect-[16/9] w-full">
-              <iframe
-                title="Google карта — г. Бишкек, ул. Кара-Кульская, 1/4"
-                src={mapSrc}
-                className="absolute inset-0 h-full w-full"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+        <RevealStagger className="relative z-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ContactChannelCard icon={<Phone className="h-4 w-4" />}>
+            <p className="text-xs font-medium tracking-[0.14em] text-white/55">ТЕЛЕФОН</p>
+            <div className="mt-3 grid gap-1">
+              {CONTACTS.phoneDisplay.map((phone, index) => (
+                <Link
+                  key={phone}
+                  href={`tel:${(index === 0 ? CONTACTS.phone : CONTACTS.phone2).replace(/[^\d+]/g, "")}`}
+                  className="text-sm text-white/85 transition-colors hover:text-white"
+                >
+                  {phone}
+                </Link>
+              ))}
             </div>
-          </Card>
-        </Reveal>
+          </ContactChannelCard>
+
+          <ContactChannelCard icon={<MessageCircle className="h-4 w-4" />}>
+            <p className="text-xs font-medium tracking-[0.14em] text-white/55">WHATSAPP</p>
+            <Link
+              href={CONTACTS.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center justify-between gap-3 text-sm text-white/85 transition-colors hover:text-white"
+            >
+              <span>{CONTACTS.whatsapp.cta}</span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-jfc-accent" />
+            </Link>
+          </ContactChannelCard>
+
+          <ContactChannelCard icon={<AtSign className="h-4 w-4" />}>
+            <p className="text-xs font-medium tracking-[0.14em] text-white/55">INSTAGRAM</p>
+            <Link
+              href={CONTACTS.instagram.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 block transition-colors hover:text-white"
+            >
+              <p className="text-sm font-semibold text-white/90">{CONTACTS.instagram.handle}</p>
+              <p className="mt-1 text-sm text-jfc-muted">{CONTACTS.instagram.cta}</p>
+            </Link>
+          </ContactChannelCard>
+
+          <ContactChannelCard icon={<Clock className="h-4 w-4" />}>
+            <p className="text-xs font-medium tracking-[0.14em] text-white/55">
+              {CONTACTS.hoursLabel.toUpperCase()}
+            </p>
+            <div className="mt-3 grid gap-1">
+              {CONTACTS.hours.map((line) => (
+                <p key={line} className="text-sm text-white/85">
+                  {line}
+                </p>
+              ))}
+            </div>
+          </ContactChannelCard>
+        </RevealStagger>
       </div>
     </Section>
   );
 }
-

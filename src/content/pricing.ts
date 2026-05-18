@@ -1,5 +1,3 @@
-import { withBasePath } from "@/lib/basePath";
-
 export type PricingPlan = {
   id: string;
   name: string;
@@ -30,7 +28,7 @@ export const PRICING = {
     "Выберите формат, который подходит вашему ритму.\nЛюбой план — это премиальная атмосфера, дисциплина и комфорт.",
   ctaHref: "#lead",
   heroBanner: {
-    imageSrc: withBasePath("/assets/pricing/banner.jpeg"),
+    imageSrc: "/assets/pricing/banner.jpeg",
     alt: "Зал JFC GYM — премиальная атмосфера",
   },
   gym: {
@@ -91,7 +89,7 @@ export const PRICING = {
             title: "МИКС ФАЙТ",
             description:
               "Комплексная подготовка: удары, борьба, выносливость и тактика.",
-            imageSrc: withBasePath("/assets/pricing/sports/mixfight.png"),
+            imageSrc: "/assets/pricing/sports/mixfight.png",
             href: "#lead",
           },
           {
@@ -99,7 +97,7 @@ export const PRICING = {
             title: "ГРЭППЛИНГ",
             description:
               "Борьба без ударов. Контроль, болевые и удушающие приемы.",
-            imageSrc: withBasePath("/assets/pricing/sports/grappling.jpg"),
+            imageSrc: "/assets/pricing/sports/grappling.jpg",
             href: "#lead",
           },
           {
@@ -107,16 +105,14 @@ export const PRICING = {
             title: "БОКС",
             description:
               "Развивает технику ударов, скорость, реакцию и выносливость.",
-            imageSrc: withBasePath("/assets/pricing/sports/boxing.png"),
+            imageSrc: "/assets/pricing/sports/boxing.png",
             href: "#lead",
           },
           {
             id: "wrestling",
             title: "ВОЛЬНАЯ БОРЬБА",
             description: "Броски, контроль и работа в партере. Сила, ловкость и характер.",
-            imageSrc: withBasePath(
-              "/assets/pricing/sports/freestyle-wrestling.jpg",
-            ),
+            imageSrc: "/assets/pricing/sports/freestyle-wrestling.jpg",
             href: "#lead",
           },
         ],
@@ -129,21 +125,21 @@ export const PRICING = {
             id: "abcspine",
             title: "ABC SPINE",
             description: "Здоровая спина, осанка и гибкость. Забота о теле каждый день.",
-            imageSrc: withBasePath("/assets/pricing/sports/abc-spine.jpg"),
+            imageSrc: "/assets/pricing/sports/abc-spine.jpg",
             href: "#lead",
           },
           {
             id: "thaiboxing",
             title: "ТАЙСКИЙ БОКС",
             description: "Техника ударов руками и ногами. Уверенность и отличная форма.",
-            imageSrc: withBasePath("/assets/pricing/sports/muay-thai.jpg"),
+            imageSrc: "/assets/pricing/sports/muay-thai.jpg",
             href: "#lead",
           },
           {
             id: "flexpower",
             title: "FLEX POWER",
             description: "Силовые тренировки для тонуса, рельефа и энергии.",
-            imageSrc: withBasePath("/assets/pricing/sports/flex-power.jpg"),
+            imageSrc: "/assets/pricing/sports/flex-power.jpg",
             href: "#lead",
           },
           {
@@ -151,7 +147,7 @@ export const PRICING = {
             title: "FULL BODY",
             description:
               "Комплексные тренировки на все тело. Эффективно и сбалансировано.",
-            imageSrc: withBasePath("/assets/pricing/sports/full-body.jpg"),
+            imageSrc: "/assets/pricing/sports/full-body.jpg",
             href: "#lead",
           },
         ],
@@ -164,35 +160,35 @@ export const PRICING = {
             id: "kids-muaythai",
             title: "ТАЙСКИЙ БОКС",
             description: "Развивает дисциплину, координацию и уверенность.",
-            imageSrc: withBasePath("/assets/pricing/sports/kids-muay-thai.jpg"),
+            imageSrc: "/assets/pricing/sports/kids-muay-thai.jpg",
             href: "#lead",
           },
           {
             id: "kickboxing",
             title: "КИКБОКСИНГ",
             description: "Удары, скорость и сила. Физическая подготовка и характер.",
-            imageSrc: withBasePath("/assets/pricing/sports/kickboxing.jpg"),
+            imageSrc: "/assets/pricing/sports/kickboxing.jpg",
             href: "#lead",
           },
           {
             id: "kids-boxing",
             title: "БОКС",
             description: "Основы бокса, техника и выносливость. Путь чемпиона.",
-            imageSrc: withBasePath("/assets/pricing/sports/kids-boxing.jpg"),
+            imageSrc: "/assets/pricing/sports/kids-boxing.jpg",
             href: "#lead",
           },
           {
             id: "greco",
             title: "ГРЕКО-РИМСКАЯ БОРЬБА",
             description: "Сила, выносливость и воля к победе.",
-            imageSrc: withBasePath("/assets/pricing/sports/greco-roman.jpg"),
+            imageSrc: "/assets/pricing/sports/greco-roman.jpg",
             href: "#lead",
           },
           {
             id: "taekwondo",
             title: "ТХЭКВОНДО",
             description: "Гибкость, скорость, дисциплина и уважение.",
-            imageSrc: withBasePath("/assets/pricing/sports/taekwondo.jpg"),
+            imageSrc: "/assets/pricing/sports/taekwondo.jpg",
             href: "#lead",
           },
         ],
